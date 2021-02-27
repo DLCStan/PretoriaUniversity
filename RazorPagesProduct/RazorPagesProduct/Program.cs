@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using RazorPagesProduct.Models;
 using Microsoft.Extensions.DependencyInjection;
+using RazorPagesProduct.Data;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RazorPagesProduct
 {
@@ -15,8 +17,9 @@ namespace RazorPagesProduct
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-            /*
+
+            //CreateHostBuilder(args).Build().Run();
+            
             var host = CreateHostBuilder(args).Build(); //.Run();
             using (var scope = host.Services.CreateScope())
             {
@@ -24,7 +27,13 @@ namespace RazorPagesProduct
 
                 try
                 {
-                    SeedData.Initialize(services);
+                    var context = services.GetRequiredService<RazorPagesProductContext>();
+
+                    //var migrator = context.Database.GetService<IMigrator>();
+                    //await migrator.MigrateAsync("targetMigration", cancellationToken);
+
+                    //////SeedData.Initialize(services);
+                    context.Database.EnsureCreated();
                 }
                 catch(Exception ex)
                 {
@@ -33,7 +42,7 @@ namespace RazorPagesProduct
                 }
             }
 
-            host.Run();*/
+            host.Run();
                  
         }
 

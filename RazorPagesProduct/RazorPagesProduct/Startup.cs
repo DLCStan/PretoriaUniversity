@@ -41,10 +41,10 @@ namespace RazorPagesProduct
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            /*services.Configure<RequestLocalizationOptions>(options =>
+            services.Configure<RequestLocalizationOptions>(options =>
             {
                 options.DefaultRequestCulture = new RequestCulture("en-US");
-            });*/
+            });
 
             services.AddRazorPages();
 
@@ -56,7 +56,7 @@ namespace RazorPagesProduct
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            //app.UseRequestLocalization();
+            app.UseRequestLocalization();
 
             if (env.IsDevelopment())
             {

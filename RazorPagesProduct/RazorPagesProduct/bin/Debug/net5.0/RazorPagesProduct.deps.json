@@ -25,6 +25,7 @@
     ".NETCoreApp,Version=v5.0": {
       "RazorPagesProduct/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.3",

@@ -1,0 +1,60 @@
+﻿@* @model IEnumerable<GendacHashProduct.Models.NBAPlayer>
+*@
+@model GendacHashProduct.Models.TeamViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Favorite NBA Players</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="NBAPlayers" asp-action="Index" method="get">
+    <p>
+        <select asp-for="PlayerTeam" asp-items="Model.AllTeams">
+            <option value="">All</option>
+        </select>
+        <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Search Player"/>
+    </p>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AllNBAPlayers[0].PlayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllNBAPlayers[0].TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllNBAPlayers[0].PointsPerGame)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AllNBAPlayers) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PointsPerGame)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

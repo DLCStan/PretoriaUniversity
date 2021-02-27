@@ -31,35 +31,12 @@ namespace RazorPagesProduct.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Product");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Category = "CategoryA",
-                            Name = "Stove"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Category = "CategoryB",
-                            Name = "Fridge"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Category = "CategoryC",
-                            Name = "TV"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Category = "CategoryA",
-                            Name = "Sofa"
-                        });
                 });
 #pragma warning restore 612, 618
         }
