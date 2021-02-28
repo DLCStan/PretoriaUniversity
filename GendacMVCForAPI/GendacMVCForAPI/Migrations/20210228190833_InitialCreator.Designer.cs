@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GendacMVCForAPI.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20210228114043_ResettingDB")]
-    partial class ResettingDB
+    [Migration("20210228190833_InitialCreator")]
+    partial class InitialCreator
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,7 @@ namespace GendacMVCForAPI.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

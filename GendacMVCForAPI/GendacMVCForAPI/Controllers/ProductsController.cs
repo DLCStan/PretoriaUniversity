@@ -105,6 +105,12 @@ namespace GendacMVCForAPI.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            ViewBag.CategoryTypeId = new List<SelectListItem>
+            {
+                new SelectListItem {Text = "CategoryA", Value = "CategoryA"},
+                new SelectListItem {Text = "CategoryB", Value = "CategoryB"},
+                new SelectListItem {Text = "CategoryC", Value = "CategoryC"}
+            };
             return View();
         }
 
@@ -121,6 +127,13 @@ namespace GendacMVCForAPI.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.CategoryTypeId = new List<SelectListItem>
+            {
+                new SelectListItem {Text = "CategoryA", Value = "CategoryA"},
+                new SelectListItem {Text = "CategoryB", Value = "CategoryB"},
+                new SelectListItem {Text = "CategoryC", Value = "CategoryC"}
+            };
             return View(product);
         }
 

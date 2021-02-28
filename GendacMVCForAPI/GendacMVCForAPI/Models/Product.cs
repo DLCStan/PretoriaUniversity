@@ -8,11 +8,12 @@ namespace GendacMVCForAPI.Models
 {
     public class Product
     {
-        [StringLength(60, MinimumLength = 9)]
         [Required]
         public string Category { get; set; }
         public int Id { get; set; }
 
+
+        [RegularExpression(@"^[A-Za-z0-9 ]*$")]
         public string Name { get; set; }
 
         [DataType(DataType.Currency)]

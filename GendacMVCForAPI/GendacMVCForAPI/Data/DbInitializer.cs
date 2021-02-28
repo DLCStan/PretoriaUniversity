@@ -25,6 +25,7 @@ namespace GendacMVCForAPI.Data
                 return;
             }
 
+            /*
             context.Products.Add( new Product
             {
                 Category = "CategoryC",
@@ -45,9 +46,10 @@ namespace GendacMVCForAPI.Data
                 Name = "Product HHKSD",
                 Price = 999.49M
             });
-
+            
             context.SaveChanges();
-            /*
+            */
+            
             //Console.WriteLine("Hello World!");
             var url = "http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/";
 
@@ -90,7 +92,7 @@ namespace GendacMVCForAPI.Data
                     context.SaveChanges();
                 }
                 
-            }*/
+            }
         }
     }
 }
